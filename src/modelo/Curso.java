@@ -17,6 +17,13 @@ public class Curso {
 		this.descricao = descricao;
 		this.treinadores = new String [5];
 	}
+	public Curso(int id, String dataInicio, String dataTermino, String descricao ) {
+		this.id = id;
+		this.dataInicio = dataInicio;
+		this.dataTermino = dataTermino;
+		this.descricao = descricao;
+		
+	}
 
 	public void listarTreinador() {
 		for(int i = 0; i < treinadores.length; i++) {
@@ -35,8 +42,6 @@ public class Curso {
 
 		}
 	}
-
-
 
 	public int getId() {
 		return id;
@@ -61,6 +66,10 @@ public class Curso {
 	}
 	public void setDataTermino(String dataTermino) {
 		this.dataTermino = dataTermino;
+	}
+	
+	public void setDescricao(String descricao) {
+		this.descricao = descricao;
 	}
 
 	public String getDescricao() {

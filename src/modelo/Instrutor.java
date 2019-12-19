@@ -27,25 +27,44 @@ public class Instrutor {
 		
 		
 	}
-	public void atualizarEvento() {
+	public boolean atualizarEvento(int id, String dataDeEvento, String horario, String nomeDoLocal, String endereco) {
 		for(int i = 0; i < eventos.length; i++) {
+			if(eventos[i] != null) {
+				if(eventos[i].getId() == id) {
+					eventos[i].getNome();
+					eventos[i].setDataDeEvento(dataDeEvento);
+					eventos[i].setHorario(horario);
+					eventos[i].setNomeDoLocal(nomeDoLocal);
+					eventos[i].setEndereco(endereco);
+					
+					 return true;
+				}
+			}
+				
+			
 			
 		}
-		
+		return false;
 	}
 	
 	public void listaEventos() {
 		for(int i = 0; i < eventos.length; i++) {
 			if(eventos[i] != null) {
+				System.out.println("Id: " + eventos[i].getId());
 				System.out.println("Nome: " + eventos[i].getNome());
 				System.out.println("Descrição: " + eventos[i].getDescricao());
+				System.out.println("Data do evento: " + eventos[i].getDataDeEvento());
+				System.out.println("Horario: " + eventos[i].getHorario());
+				System.out.println("Nome do local: " + eventos[i].getNomeDoLocal());
+				System.out.println("Endereço: " + eventos[i].getEndereco());
+				
 			}
 		}
 	}
 	
 	public void excluirEventos(int id) {
 		for(int i = 0; i < eventos.length; i++ ) {
-			if(eventos[i].getId() == id) {
+			if(eventos[i] != null && eventos[i].getId() == id) {
 				eventos[i] = null;
 			}
 			else {
@@ -76,6 +95,14 @@ public class Instrutor {
 			System.out.println("Evento não encontrado ");
 		} 
 	}
+	public boolean verificarIdDeEvento(int id) {
+		for(int i = 0; i < eventos.length; i++) {
+		if( eventos[i] != null && eventos[i].getId() == id) {
+			return true;
+		}
+		}
+		return false;
+	}
 	
 
 	public void adicionarCurso(Curso curso) { // ira receber um curso por parametro 
@@ -88,10 +115,21 @@ public class Instrutor {
 		}
 	}
 
-	public void atualizarCurso(){
+	public boolean atualizarCurso(int id, String nome, String dataInicio, String dataTermino, String descricao){
 		for(int i = 0; i < cursos.length; i++) {
+			if(cursos[i] != null) {
+				if(cursos[i].getId() == id) {
+					cursos[i].setNome(nome);
+					cursos[i].setDataInicio(dataInicio);
+					cursos[i].setDataTermino(dataTermino);
+					cursos[i].setDescricao(descricao);
+					return true;
+				}
+			}
+			
 
 		}
+		return false;
 	}
 	public void listarCurso() {
 		for(int i = 0; i < cursos.length; i++) {
@@ -108,8 +146,9 @@ public class Instrutor {
 	
 	public void excluirCurso(int id) {
 		for(int i = 0; i < cursos.length; i++ ) {
-			if(cursos[i].getId() == id) {
+			if(cursos[i] != null && cursos[i].getId() == id) {
 				cursos[i] = null;
+				break;
 			}
 			else {
 				System.out.println("Curso não encontrado!!");
@@ -138,6 +177,14 @@ public class Instrutor {
 		}else {
 			System.out.println("Curso não encontrado ");
 		}
+	}
+	public boolean verificarIdDeCurso(int id) {
+		for(int i = 0; i < cursos.length; i++) {
+		if(cursos[i] != null && cursos[i].getId() == id) {
+			return true;
+		}
+		}
+		return false;
 	}
 
 

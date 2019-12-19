@@ -2,21 +2,28 @@ package modelo;
 
 public class Evento {
 	
-	private long id;
+	private int id;
 	private String nome;
 	private String descricao;
 	private String dataDeEvento;
 	private String horario;
 	private String nomeDoLocal;
 	private String endereco;
-	private String emailDeContato;
-	private String telefone;
 	
+	public Evento(int id, String nome, String descricao,String dataDeEvento,String horario, String nomeDoLocal, String endereco ) {
+		this.id = id;
+		this.nome = nome;
+		this.descricao = descricao;
+		this.dataDeEvento = dataDeEvento;
+		this.horario = horario;
+		this.nomeDoLocal = nomeDoLocal;
+		this.endereco = endereco;
+	}
 	
-	public long getId() {
+	public int getId() {
 		return id;
 	}
-	public void setId(long id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 	public String getNome() {
@@ -55,16 +62,5 @@ public class Evento {
 	public void setEndereco(String endereco) {
 		this.endereco = endereco;
 	}
-	public String getEmailDeContato() {
-		return emailDeContato;
+
 	}
-	public void setEmailDeContato(String emailDeContato) {
-		this.emailDeContato = emailDeContato;
-	}
-	public String getTelefone() {
-		return telefone;
-	}
-	public void setTelefone(String telefone) {
-		this.telefone = telefone;
-	}
-}
